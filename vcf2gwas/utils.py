@@ -1473,12 +1473,12 @@ class Gemma:
 
         Log.print_log('Calculating linear model..')
         if covar_file_name == None:
-            command = ['gemma', '-bfile', prefix, model, n, '-n', '-o', prefix2, '-outdir', path, '-pmax', '0.1', '-pmin', '1e-99']
+            command = ['gemma', '-bfile', prefix, model, n, '-n', '-o', prefix2, '-outdir', path, '-pmax', '1e-99', '-pmin', '0']
             command = Gemma.insert_N(N, command, 6)
             process = subprocess.run(command)
             #process = subprocess.run(['gemma', '-bfile', prefix, model, n, '-n', N, '-o', prefix2, '-outdir', path])
         else:
-            command = ['gemma', '-bfile', prefix, model, n, '-n', '-c', covar_file_name, '-o', prefix2, '-outdir', path, '-pmax', '0.1', '-pmin', '1e-99']
+            command = ['gemma', '-bfile', prefix, model, n, '-n', '-c', covar_file_name, '-o', prefix2, '-outdir', path, '-pmax', '1e-99', '-pmin', '0']
             command = Gemma.insert_N(N, command, 6)
             process = subprocess.run(command)
             #process = subprocess.run(['gemma', '-bfile', prefix, model, n, '-n', N, '-c', covar_file_name, '-o', prefix2, '-outdir', path])
